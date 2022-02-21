@@ -1,0 +1,73 @@
+<section class="register_section">
+    <div class="main_img">
+        <img src="WW1.jpg">
+    </div>
+    <div class="content">
+        <div class="form">
+            <h2>Register</h2>
+            <%- include('./partials/messages.ejs') %>
+            <form action="/register" method="post">
+
+                <div class="form_input">
+                    <span>Username</span>
+                    <input 
+                            type="text" 
+                            name="username" 
+                            class="form_username" 
+                            id="username"
+                            value="<%= typeof username != 'undefined' ? username : '' %>">
+                </div>
+                <div class="form_input">
+                    <span>Email</span>
+                    <input 
+                            type="email" 
+                            name="email" 
+                            class="form_email" 
+                            id="email"
+                            value="<%= typeof email != 'undefined' ? email : '' %>">
+                </div>
+                <div class="form_input">
+                    <span>Password</span>
+                    <input 
+                            type="password" 
+                            name="password" 
+                            class="form_password" 
+                            id="password"
+                            value="<%= typeof password != 'undefined' ? password : '' %>">
+                </div>
+                <div class="form_input">
+                    <span>Confirm Password</span>
+                    <input 
+                            type="password" 
+                            name="password2" 
+                            class="form_password2" 
+                            id="password2"
+                            value="<%= typeof password2 != 'undefined' ? password2 : '' %>">
+                </div>
+                <div class="form_input">
+                    <span>Phone Number</span>
+                    <input 
+                            type="text" 
+                            name="phone_number" 
+                            class="form_phone_number" 
+                            id="phone_number"
+                            value="<%= typeof phone_number != 'undefined' ? phone_number : '' %>">
+                </div>
+                <div class="form_input">
+                    <span>Service Type</span>
+                    <select name="service" id="">
+                        <option>Hall</option>
+                        <option value="">Cars</option>
+                    </select>
+                </div>
+                <div class="remmber">
+                    <label><input type="checkbox"> Remember me</label>
+                </div>
+                <div class="btn">
+                    <button>Sign in</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</section>

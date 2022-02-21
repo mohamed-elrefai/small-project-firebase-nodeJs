@@ -1,0 +1,65 @@
+<section class="register_section">
+    <div class="main_img">
+        <img src="WW1.jpg">
+    </div>
+    <div class="content">
+        <div class="form">
+            <h2>Register</h2>
+            <%- include('./partials/messages.ejs') %>
+            <form id="form" > 
+                <div class="form_input">
+                    <span>Email</span>
+                    <input 
+                            type="email" 
+                            name="email" 
+                            class="form_email" 
+                            id="email"
+                            value="<%= typeof email != 'undefined' ? email : '' %>">
+                </div>
+                <div class="form_input">
+                    <span>Password</span>
+                    <input 
+                            type="password" 
+                            name="password" 
+                            class="form_password" 
+                            id="password"
+                            value="<%= typeof password != 'undefined' ? password : '' %>">
+                </div>
+                <div class="remmber">
+                    <label><input type="checkbox"> Remember me</label>
+                </div>
+                <div class="btn">
+                    <button>Login</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</section>
+<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+<script>
+    const config = {
+        // config
+    };
+    firebase.initializeApp(config);
+    // make auth and firestore references
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+</script>
+<script >
+    // Login
+const form = document.querySelector('#form').addEventListener('submit', (e)=>{
+    e.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    auth.signInWithEmailAndPassword(email, password).then((cred) => {
+        console.log(cred.user.uid)
+    })
+})
+
+</script>
